@@ -1,0 +1,253 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.SitecoreExtensions.Extensions
+
+@model Vista.Feature.News.Models.NewsListViewModel
+
+<div class="news-items__filters d-flex">
+    <ul class="news-items__filters--subject d-flex tags">
+        <li>
+            <label for="noneSelected">
+                <input type="radio" value="" name="articleFilters" id="noneSelected" @(Model.Tags.Any(t => t.Selected) ? "" : "checked") />
+                <span>All Articles</span>
+            </label>
+        </li>
+        @foreach (Vista.Feature.News.Models.NewsFilterItem filter in Model.Tags)
+        {
+            <li>
+                <label for="@filter.Key.ToString()">
+                    <input type="radio" value="@filter.ID" name="articleFilters" id="@filter.Key.ToString()" @(filter.Selected ? "checked" : "") />
+                    <span>@filter.Name</span>
+                </label>
+            </li>
+        }
+    </ul>
+    <ul class="news-items__filters--type d-flex types">
+        <li>
+            <label class="psuedo-checkbox">
+                Only show articles with Video
+                <input type="checkbox" id="VideosOnly" name="VideosOnly" @(Model.VideosOnly ? "checked" : "") />
+                <span></span>
+            </label>
+        </li>
+    </ul>
+</div>
+<section class="promo-container news-items__articles container">
+    <div class="promo-container__wrapper d-flex">
+        @if (!Model.PagedItems.Any())
+        {
+            <p>No Matching Content Found.</p>
+        }
+        else
+        {
+            foreach (var item in Model.PagedItems)
+            {
+            <section class="promo ">
+                <div class="promo__background" style="background-image: url(@item.BackgroundImage);">
+                    <a href="@item.DetailsLink.Url" title="@item.Title"></a>
+                </div>
+                
+                <div class="promo__content-wrapper">
+                    <div class="promo__content">
+
+                        <h2>
+                            <a href="@item.DetailsLink.Url">@item.Title</a>
+                        </h2>
+
+                        <div class="promo__copy">
+                            @Html.Raw(item.Summary)
+                        </div>
+
+                        <div class="promo__ctas">
+                            <a href="@item.DetailsLink.Url" target="" class="d-flex">
+                                Read More
+                                <i class="icon icon-cta--white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            }
+
+            if (Model.PageCount > 1)
+            {
+                <section class="container expert-advice__pagination">
+                    <div class="pagination d-flex">
+                        <div class="pagination__left">
+                            <ul class="d-flex">
+                                @if (Model.PageCount > 1)
+                                {
+                                    <li>
+                                        <a href="#" class="first @(Model.CurrentPage != 1 ? "" : "disabled")" data-page="1">
+                                            First
+                                        </a>
+                                    </li>
+                                }
+
+                                @if (Model.PageCount > 1)
+                                {
+                                    <li>
+                                        <a href="#" class="previous @(Model.CurrentPage != 1 ? "" : "disabled")" data-page="@(Model.CurrentPage - 1)">
+                                            Previous
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="pagination__center">
+                            <ul class="d-flex">
+
+                                @for (var i = 1; i <= Model.PageCount; i++)
+                                {
+                                    if (i == Model.CurrentPage)
+                                    {
+                                        <li><a class="active" disabled>@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#" data-page="@i">@i</a></li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                        <div class="pagination__right">
+                            <ul class="d-flex">
+                                @if (Model.PageCount > 1)
+                                {
+                                    <li><a href="#" class="next @(Model.CurrentPage != Model.PageCount ? "" : "disabled")" data-page="@(Model.CurrentPage + 1)">Next</a></li>
+                                }
+
+                                @if (Model.PageCount > 1)
+                                {
+                                    <li><a href="#" class="last @(Model.CurrentPage < Model.PageCount ? "" : "disabled")" data-page="@Model.PageCount">Last</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            }
+        }
+    </div>
+</section>
+
+@*//TODO: Move this to external file*@
+<script type="text/javascript">
+    var callback = function () {
+
+        function scrollToAnchor(aid) {
+            var aTag = $(aid);
+            $('html,body').animate({ scrollTop: aTag.offset().top - 100 }, 50);
+        }
+
+
+        var lastSelected = "";
+
+        var fetchParameters = {
+            page: @(Model.CurrentPage + 1),
+            pageSize: @Model.PageSize,
+            Tags: [
+                    @foreach (var tag in Model.Tags)
+                    {
+                        if (tag.Selected)
+                        {
+                        <text>'@tag.ID',</text>
+                            }
+                    }
+            ],
+            VideosOnly: @Model.VideosOnly.ToString().ToLower(),
+            ParentPage: '@Model.ParentPage'
+        }
+
+        var newsContainer = $("#news-article-list");
+
+        function updateQueryStringParameter(uri, key, value) {
+            var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+            var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+            if (uri.match(re)) {
+                return uri.replace(re, '$1' + key + "=" + value + '$2');
+            }
+            else {
+                return uri + separator + key + "=" + value;
+            }
+        }
+
+        var fetchNews = function () {
+            $.ajax({
+                type: "POST",
+                url: "/api/feature/news/fetch",
+                cache: false,
+                //headers: { "__RequestVerificationToken": token },
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(fetchParameters),
+                success: function (data) {
+                    scrollToAnchor('#news-article-list');
+                    newsContainer.html(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+
+
+        var setupBindings = function () {
+            $(".pagination a").on("click", function (e) {
+                e.preventDefault();
+
+                if ($(e.target).hasClass("disabled")) return;
+
+                fetchParameters.page = Number($(e.target).attr("data-page"));
+
+                fetchNews();
+            });
+
+            $(".tags input").on("click", function (e) {
+                var filter = $(e.target);
+
+                if (filter.prop("checked") == true) {
+                    fetchParameters.Tags = [];
+                    fetchParameters.Tags.push(filter.val());
+                    console.log(e.target);
+                    lastSelected = e.target.id.toLowerCase();
+                } else {
+                    lastSelected = "";
+                }
+
+                var url = location.href;
+                if (!lastSelected || lastSelected === "" || lastSelected === "noneselected") {
+                    url = location.href.split("?")[0];
+                }
+                else {
+                    url = updateQueryStringParameter(url, "topic", lastSelected);
+                }
+
+                if (history.pushState) {
+                    window.history.pushState("", "", url);
+                }
+
+                fetchParameters.pageSize = @Model.PageSize;
+                fetchParameters.page = 1;
+                fetchNews();
+            });
+
+            $(".types input").on("click", function (e) {
+                var filter = $(e.target);
+                fetchParameters.VideosOnly = filter.prop("checked") === true;
+
+                fetchParameters.pageSize = @Model.PageSize;
+                fetchParameters.page = 1;
+                fetchNews();
+            });
+        }
+
+
+        setupBindings();
+    }
+
+    if (document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)) {
+        callback();
+    } else {
+        document.addEventListener("DOMContentLoaded", callback);
+    }
+</script>

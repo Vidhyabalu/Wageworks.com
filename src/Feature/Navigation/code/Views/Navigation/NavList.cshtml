@@ -1,0 +1,24 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+@foreach (var item in Model.NavItems)
+{
+    <div class="nav-list">
+        <span>@Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, item.Item)</span>
+        @if (item.Children?.NavItems?.Any() ?? false)
+        {
+            <ul class="@(Model.NavItems.Count == 1 ? "d-flex" : "")">
+                @foreach (var child in item.Children.NavItems)
+                {
+
+                    <li>
+                        <a href="@(child.Url)@(string.IsNullOrEmpty(child.Anchor) ? "" : "#" + child.Anchor)" class="@child.CssClass" target="@child.Target" title="@child.Item[Templates.Navigable.Fields.NavigationTitle]">
+                            @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, child.Item)
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+}

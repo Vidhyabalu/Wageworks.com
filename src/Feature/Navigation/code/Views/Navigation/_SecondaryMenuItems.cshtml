@@ -1,0 +1,28 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+@{
+  if (Model == null || Model.NavItems == null)
+  {
+    return;
+  }
+}
+
+<ul class="nav nav-pills nav-stacked">
+  @foreach (var item in Model.NavItems)
+  {
+    var hasChildren = item.IsActive && item.Children != null && item.Children.NavItems.Any();
+    var itemClass = item.IsActive ? "active" : string.Empty;
+    itemClass += item.IsActive && hasChildren ? " open" : string.Empty;
+    <li class="@itemClass">
+      <a href="@item.Url" target="@item.Target">
+        @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, item.Item)
+      </a>
+      @if (hasChildren)
+      {
+        @Html.Partial("_SecondaryMenuItems", item.Children)
+      }
+    </li>
+  }
+</ul>

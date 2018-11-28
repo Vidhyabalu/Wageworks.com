@@ -1,0 +1,45 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@using Vista.Feature.Navigation.Extensions
+
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+@if (Model?.NavItems == null || !Model.NavItems.Any())
+{
+    return;
+}
+
+<ul class="d-flex">
+    @foreach (var child in Model.NavItems)
+    {
+
+        <li>
+            @if (string.IsNullOrEmpty(child.Url))
+                {
+                <span>
+                    @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, child.Item)
+                </span>
+            }
+            else
+            {
+                var activeClass = child.TargetItem?.ID == Sitecore.Context.Item?.ID ? "active" : "";
+
+                <a href="@child.Url" class="@child.CssClass @activeClass" target="@child.Target" title="@child.Item[Templates.Navigable.Fields.NavigationTitle]">
+                    @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, child.Item)
+                </a>
+                if (child.ShowChildren && child.Children?.NavItems != null)
+                {
+                    <ul class="menu">
+                        @foreach (var grandchild in child.Children?.NavItems)
+                        {
+                            <li @grandchild.CssClass.ToSocialAttribute() class="st-custom-button @grandchild.CssClass"><span>@Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, grandchild.Item)</span></li>
+                        }
+                    </ul>
+                }
+            }
+
+        </li>
+    }
+    @*@Html.Sitecore().Placeholder("my-account")
+    @Html.Sitecore().Placeholder("minicart")*@
+</ul>

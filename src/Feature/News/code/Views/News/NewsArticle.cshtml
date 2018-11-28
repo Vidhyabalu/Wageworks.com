@@ -1,0 +1,14 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.Alerts
+@using Vista.Foundation.Alerts.Extensions
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.Mvc.Presentation.RenderingModel
+@if (!Model?.Item?.IsDerived(Templates.NewsArticle.ID) ?? true)
+{
+  @Html.PageEditorError(AlertTexts.InvalidDataSourceTemplate(Templates.NewsArticle.ID), AlertTexts.InvalidDataSourceTemplateFriendlyMessage, Model.Item?.ID, Model.Rendering.Item?.ID)
+  return;
+}
+
+<article class="expert-advice container">
+  @Html.Sitecore().Field(Templates.NewsArticle.Fields.Body, Model.Item)
+</article>

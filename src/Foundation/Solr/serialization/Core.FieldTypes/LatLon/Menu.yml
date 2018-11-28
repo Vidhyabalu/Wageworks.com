@@ -1,0 +1,14 @@
+﻿---
+ID: "e9a5fad4-17e8-44c0-95b2-339986830c5a"
+Parent: "979c10ce-1cfc-464c-adb4-32cb213b14ef"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/system/Field types/Foundation/LatLon/Menu
+DB: core
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20141210T142857

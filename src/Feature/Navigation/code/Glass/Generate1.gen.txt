@@ -1,0 +1,9 @@
+﻿
+
+
+These files were generated:
+- ILink.gen.cs
+- ILinkDescription.gen.cs
+- ILinkMenuItem.gen.cs
+- INavigable.gen.cs
+- INavigationRoot.gen.cs

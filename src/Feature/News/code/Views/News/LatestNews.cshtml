@@ -1,0 +1,30 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.Dictionary.Extensions
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@using Vista.Foundation.Theming.Extensions
+@using Sitecore.Mvc.Presentation
+@model IEnumerable<Sitecore.Data.Items.Item>
+<div class="well @RenderingContext.Current.Rendering.GetBackgroundClass()">
+  <h5 class="text-uppercase">@Html.Sitecore().Dictionary("/news/latest news/title", "News")</h5>
+  <ul class="media-list">
+    @foreach (var item in Model)
+    {
+      <li class="media">
+        <div class="media-body">
+          <date>
+            @Html.Sitecore().Field(Templates.NewsArticle.Fields.Date, item, new
+                                                                            {
+                                                                              format = "MMMM dd, yyyy"
+                                                                            })
+          </date>
+          <h4 class="media-heading">
+            <a href="@item.Url()">@Html.Sitecore().Field(Templates.NewsArticle.Fields.Title, item)</a>
+          </h4>
+        </div>
+      </li>
+    }
+  </ul>
+  <a href="@Html.Sitecore().CurrentRendering.Item.Url()" class="btn btn-default">
+    @Html.Sitecore().Dictionary("/news/latest news/read more", "Read more")
+  </a>
+</div>

@@ -1,0 +1,22 @@
+﻿---
+ID: "3e8788b1-7667-4797-8052-760d335df464"
+Parent: "27ed3d20-7523-4206-a791-b7d191f6c3cf"
+Template: "27ed3d20-7523-4206-a791-b7d191f6c3cf"
+Path: /sitecore/templates/Feature/News/_NewsAlert/__Standard Values
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "08b670bb-9195-4492-a086-f265aa6d8d99"
+      Hint: Allow Close
+      Type: Checkbox
+      Value: 1
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180821T013510Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

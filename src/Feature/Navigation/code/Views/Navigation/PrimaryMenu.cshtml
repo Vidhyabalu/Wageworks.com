@@ -1,0 +1,182 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+<div class="collapse navbar-collapse" id="siteNavbar">
+  <ul class="nav navbar-nav">
+    @if (Model?.NavItems != null)
+    {
+      foreach (var item in Model.NavItems)
+      {
+        var hasChildren = item.Children != null && item.Children.NavItems.Any() && item.ShowChildren;
+        var cssClass = "";
+        if (hasChildren)
+        {
+          cssClass += " dropdown";
+        }
+
+        <li class="@cssClass">
+          @if (hasChildren)
+          {
+            <a href="@item.Url" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, item.Item)<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              @foreach (var subitem in item.Children.NavItems)
+              {
+                <li class="@(subitem.IsActive ? "active" : "")">
+                  <a href="@subitem.Url" target="@subitem.Target">@Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, subitem.Item)</a>
+                </li>
+              }
+            </ul>
+          }
+          else
+          {
+            <a class="text-uppercase" href="@item.Url" target="@item.Target">
+              @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, item.Item)
+            </a>
+          }
+        </li>
+      }
+    }
+  </ul>
+</div>
+
+@*<nav class="navigation-container navbar navbar-expand-lg navbar-light container">
+    <div class="navbar__main">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav">
+                <li class="nav-item nav-item__mega active">
+                    <a class="nav-link dropdown-toggle dropright" href="http://example.com" id="sa-firearms" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Firearms</a>
+
+                    <div class="dropdown-menu" aria-labelledby="sa-firearms">
+                        <div class="dropdown-menu__navigation js-mega-nav">
+                            <a class="dropdown-item" href="#rifles">Rifles</a>
+                            <a class="dropdown-item" href="#shotguns">Shotguns</a>
+                            <a class="dropdown-item" href="#byUsage">View by Usage</a>
+                            <!--<a class="dropdown-item" href="#byFeatures">View by Features</a>
+                            <a class="dropdown-item" href="#brands">Brands</a>
+                            <a class="dropdown-item" href="#allFirearms">All firearms</a>-->
+                            <a class="dropdown-item back js-back">Back</a>
+                        </div>
+                        <div class="dropdown-menu__content">
+                            <!-- Content for Rifles -->
+                            <div id="rifles" class="content__wrapper">
+                                <div class="category__container">
+                                    <h3>Type</h3>
+                                    <ul class="category__list">
+                                        <li><a href="#">Rimfire</a></li>
+                                        <li><a href="#">MSR</a></li>
+                                        <li><a href="#">Centerfire</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category__container">
+                                    <h3>Type</h3>
+                                    <ul class="category__list">
+                                        <li><a href="#">Model 110</a></li>
+                                        <li><a href="#">Trophy</a></li>
+                                        <li><a href="#">AXIS</a></li>
+                                        <li><a href="#">Long-range Precision</a></li>
+                                        <li><a href="#">A Series</a></li>
+                                        <li><a href="#">B Series</a></li>
+                                        <li><a href="#">MSR 10</a></li>
+                                        <li><a href="#">MSR 15</a></li>
+                                        <li><a href="#">Model 64</a></li>
+                                        <li><a href="#">Model 93</a></li>
+                                        <li><a href="#">MARK Series</a></li>
+                                        <li><a href="#">Model 25</a></li>
+                                        <li><a href="#">Rascal</a></li>
+
+                                    </ul>
+                                </div>
+                                <a class="category__viewall d-flex" href="#">View all Rifles</a>
+                                <img class="category__image" src="../Images/mega-nav.jpg" alt="" />
+
+                            </div>
+
+                            <!-- Content for Shotguns -->
+                            <div id="shotguns" class="content__wrapper">
+                                <div class="category__container">
+                                    <h3>Type</h3>
+                                    <ul class="category__list">
+                                        <li><a href="#">Pump</a></li>
+                                        <li><a href="#">Side by Side</a></li>
+                                        <li><a href="#">Over Under</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category__container">
+                                    <h3>Usage</h3>
+                                    <ul class="category__list">
+                                        <li><a href="#">Big Game Hunting</a></li>
+                                        <li><a href="#">Varmint Hunying</a></li>
+                                        <li><a href="#">Waterfowl</a></li>
+                                        <li><a href="#">Small game hunting</a></li>
+                                        <li><a href="#">Predator Hunting</a></li>
+                                        <li><a href="#">Upland bird</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category__container">
+                                    <h3>Brand</h3>
+                                    <ul class="category__list">
+                                        <li><a href="#">Stevens</a></li>
+                                        <li><a href="#">Fox</a></li>
+                                    </ul>
+                                </div>
+
+                                <a class="category__viewall d-flex" href="#">View all Rifles</a>
+                                <img class="category__image" src="../Images/mega-nav.jpg" alt="" />
+                            </div>
+
+                            <!-- Content for Usage -->
+                            <div id="byUsage" class="content__wrapper">
+                                <div class="category__container">
+                                    <ul class="category__list">
+                                        <li><a href="#">Big game hunting</a></li>
+                                        <li><a href="#">Small game hunting</a></li>
+                                        <li><a href="#">Predator Hunting</a></li>
+                                        <li><a href="#">Varmint Hunting</a></li>
+                                        <li><a href="#">Waterfowl</a></li>
+                                        <li><a href="#">Varmint Hunying</a></li>
+                                        <li><a href="#">Waterfowl</a></li>
+                                        <li><a href="#">Small game hunting</a></li>
+                                        <li><a href="#">Predator Hunting</a></li>
+                                        <li><a href="#">Upland bird</a></li>
+                                    </ul>
+                                </div>
+
+                                <img class="category__image" src="../Images/mega-nav.jpg" alt="" />
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Performance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Expert Advice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Savage</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+    <a class="navbar-brand logo" href="#"><img style="" src="../Images/sa-logo.png" alt="" /></a>
+
+    <!-- Search -->
+    <!-- TODO - mobile functionality -->
+    <div class="search">
+        <form class="form-inline">
+            <a class="search__icon" href="#"><i class="icon icon-search"></i></a>
+            <input class="search__form form form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
+    </div>
+</nav>*@

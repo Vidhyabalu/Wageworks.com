@@ -1,0 +1,37 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+@{
+  if (Model?.NavItems == null)
+  {
+    return;
+  }
+
+  var isSocialMenu = Model.NavItems.All(i => !string.IsNullOrWhiteSpace(i.Item[Templates.LinkMenuItem.Fields.Icon]));
+}
+
+<nav>
+  <ul class="nav nav-service navbar-nav @(isSocialMenu ? "nav-social" : "nav-pills")">
+    @foreach (var item in Model.NavItems)
+    {
+      var liclass = item.IsActive ? "active " : "";
+      if (item.Item.Fields[Templates.LinkMenuItem.Fields.DividerBefore].IsChecked())
+      {
+        liclass += "divider-left";
+      }
+      <li class="@liclass">
+        <a href="@item.Url" target="@item.Target" title="@item.Item[Templates.Navigable.Fields.NavigationTitle]" class="@(isSocialMenu ? "btn btn-social-icon btn-" + @item.Item[Templates.LinkMenuItem.Fields.Icon] : "")">
+          @if (!string.IsNullOrWhiteSpace(item.Item[Templates.LinkMenuItem.Fields.Icon]))
+          {
+            <span class="fa fa-@item.Item[Templates.LinkMenuItem.Fields.Icon]"></span>
+          }
+          else
+          {
+            @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, item.Item)
+          }
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

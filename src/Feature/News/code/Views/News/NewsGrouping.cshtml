@@ -1,0 +1,30 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.News.Models.NewsGroupingViewModel
+
+@foreach (var group in Model.Groups)
+{
+    <section class="container">
+        <div class="ambassador__profiles">
+            <h2>@group.Key</h2>
+            <div class="four-per-row">
+                @foreach (var item in group.Value)
+                {
+                    <div>
+                        <a href="@item.Url()">
+                            @Html.Sitecore().ImageField(Templates.NewsArticle.Fields.Image, item)
+                        </a>
+
+                        <h4>
+                            @Html.Sitecore().Field(Templates.NewsArticle.Fields.Title, item)
+
+                        </h4>
+                        <p>
+                            @Html.Sitecore().Field(Templates.NewsArticle.Fields.Summary, item)
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

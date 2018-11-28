@@ -1,0 +1,48 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@using Vista.Foundation.Dictionary.Extensions
+@model Vista.Feature.News.Models.NewsPromoSectionViewModel
+@using System.Linq
+
+@if (Model != null && Model.Articles != null && Model.Articles.Any())
+{
+
+    <section class="promo-container news-details__related container">
+        <h2>@Html.Sitecore().Dictionary("/Articles/Related Articles Header", "Related to This Story")</h2>
+
+        <div class="promo-container__wrapper  d-flex">
+            @foreach (var promoItem in Model.Articles)
+            {
+                <section class="promo @(string.IsNullOrEmpty(promoItem.Summary) ? "nocontent" : "")">
+                    <div class="promo__background" style="background-image: url(@promoItem.BackgroundImage);"></div>
+                    @*<img src="@promoItem.BackgroundImage" alt="@promoItem.Title" />*@
+                    <div class="promo__content-wrapper">
+                        <div class="promo__content">
+
+                            <h2>
+                                @promoItem.Title
+                            </h2>
+
+                            <div class="promo__copy">
+                                @Html.Raw(promoItem.Summary)
+                            </div>
+
+                            <div class="promo__ctas">
+                                <a href="@promoItem.DetailsLink.Url" target="@promoItem.DetailsLink.Target" class="d-flex btn @promoItem.DetailsLink.Class">
+                                    @promoItem.DetailsLink.Text
+                                    <i class="icon icon-cta--white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
+
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.DetailsPage.Url))
+        {
+            <a class="promo-container__cta d-flex btn @Model.DetailsPage.Class" href="@Model.DetailsPage.Url">@(string.IsNullOrEmpty(Model.DetailsPage.Text) ? Html.Sitecore().Dictionary("/Articles/Read More", "See More") : Model.DetailsPage.Text) <i class="icon icon-cta"></i></a>
+        }
+    </section>
+}

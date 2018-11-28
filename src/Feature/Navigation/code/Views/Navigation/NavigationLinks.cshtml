@@ -1,0 +1,30 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+@{
+  if (Model?.NavItems == null)
+  {
+    return;
+  }
+}
+
+<ul class="nav nav-stacked">
+  @foreach (var item in Model.NavItems)
+  {
+    if (item.Item.Fields[Templates.LinkMenuItem.Fields.DividerBefore].IsChecked())
+    {
+      <li class="divider"></li>
+    }
+    <li>
+      <a href="@item.Url" target="@item.Target" title="@item.Item[Templates.Navigable.Fields.NavigationTitle]">
+        @if (!string.IsNullOrWhiteSpace(item.Item[Templates.LinkMenuItem.Fields.Icon]))
+        {
+          <i class="fa fa-@item.Item[Templates.LinkMenuItem.Fields.Icon]"></i>@:&nbsp;
+        }
+
+        <span>@Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, item.Item)</span>
+      </a>
+    </li>
+  }
+</ul>

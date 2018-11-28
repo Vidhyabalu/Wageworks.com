@@ -1,0 +1,26 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+
+<section class="our-products container d-flex">
+    @foreach (var item in Model.NavItems)
+    {
+        <div class="product-group d-flex">
+            <div class="product-group__image" style="background-image: url(@item.ImageUrl)">
+                <h2>@Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, item.Item)</h2>
+            </div>
+            <div class="product-group__content">
+                <div>@Html.Sitecore().Field(Templates.LinkDescription.Fields.Description, item.Item)</div>
+            </div>
+            <div class="product-group__links d-flex">
+                @foreach (var subitem in item.Children.NavItems)
+                {
+                    <a class="product-link @(subitem.IsActive ? "active" : "")" href="@(subitem.Url)@(string.IsNullOrEmpty(subitem.Anchor) ? "" : "#" + subitem.Anchor)" target="@subitem.Target">
+                        @Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, subitem.Item)
+                    </a>
+                }
+            </div>
+        </div>
+    }
+</section>

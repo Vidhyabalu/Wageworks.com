@@ -1,0 +1,72 @@
+﻿@using Sitecore
+@using Vista.Feature.News
+@using Vista.Foundation.Dictionary.Extensions
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Links
+@using Vista.Foundation.Alerts
+@using Vista.Foundation.Alerts.Extensions
+@using Vista.Feature.News.Extensions
+
+@model Sitecore.Data.Items.Item
+
+@if (!Model?.IsDerived(Templates.NewsArticle.ID) ?? true)
+{
+    @Html.PageEditorError(AlertTexts.InvalidDataSourceTemplate(Templates.NewsArticle.ID), AlertTexts.InvalidDataSourceTemplateFriendlyMessage, Model?.ID, Model?.ID)
+    return;
+}
+
+@if (System.Web.HttpContext.Current.GetCookie(string.Format(Vista.Feature.News.Constants.AlertIdFormatString, Model.ID.Guid)) != null)
+{
+    return;
+}
+
+@if (((Sitecore.Data.Fields.DateField)Model.Fields[Templates.NewsArticle.Fields.EndDate]).DateTime != DateTime.MinValue && ((Sitecore.Data.Fields.DateField)Model.Fields[Templates.NewsArticle.Fields.EndDate]).DateTime < DateTime.Now)
+{
+    return;
+}
+
+
+<div id="alert-@Model.ID.Guid.ToString()" class="alert alert-dismissible fade show" role="alert">
+    <div class="alert__wrapper container">
+        <div class="alert__content">
+            @Html.Sitecore().Field(Templates.NewsArticle.Fields.AlertText, @Model)
+            <a href="@Model.Url()">Read More</a>
+        </div>
+        
+        @if (MainUtil.GetBool(Model[Templates.NewsArticle.Fields.AllowClose], false))
+        {
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="icon icon-close"></i></span>
+            </button>
+        }
+       
+    </div>
+</div>
+
+<script type="text/javascript">
+        /// TODO: Move to site-level js file
+    var callback = function () {
+            function setCookie(key, value) {
+                var expires = new Date();
+                expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+                document.cookie = key + '=' + value + '; expires=' + expires.toGMTString() + '; path=/';
+            }
+
+            $('#alert-@Model.ID.Guid.ToString()').on('closed.bs.alert', function (e) {
+
+                console.log(e.target.id);
+                setCookie(e.target.id, "true");
+
+            });
+    };
+
+    if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)
+    ) {
+        callback();
+    } else {
+        document.addEventListener("DOMContentLoaded", callback);
+    }
+
+</script>

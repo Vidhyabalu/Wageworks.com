@@ -1,0 +1,24 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model IEnumerable<Sitecore.Data.Items.Item>
+
+<section class="container">
+    <ul class="product-warning__list">
+        @foreach (var item in Model.OrderBy(n => n.Appearance.Sortorder))
+        {
+            <li>
+
+                <h4>
+                    @Html.Sitecore().Field(Templates.NewsArticle.Fields.Title, item)
+
+                </h4>
+                <p>
+                    @Html.Sitecore().Field(Templates.NewsArticle.Fields.Summary, item)
+                </p>
+                <a href="@item.Url()">
+                    Learn More
+                </a>
+            </li>
+        }
+    </ul>
+</section>

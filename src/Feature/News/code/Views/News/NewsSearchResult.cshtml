@@ -1,0 +1,48 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Foundation.Indexing.Models.ISearchResult
+@*<div class="media">
+    <div class="media-body">
+        <div class="media-title">
+            <div>
+                <span class="label label-info">@Model.ContentType</span>
+                <span class="label label-default">
+                    @Html.Sitecore().Field(Templates.NewsArticle.Fields.Date, Model.Item, new { format = "MMMM dd, yyyy" })
+                </span>
+            </div>
+            <h2>
+                <a href="@Model.Url">@Html.Raw(Model.Title)</a>
+            </h2>
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Model.Description))
+        {
+            @Html.Raw(Model.Description)
+        }
+    </div>
+    @if (Model.Item.FieldHasValue(Templates.NewsArticle.Fields.Image))
+    {
+        <div class="media-left">
+            <a href="@Model.Url">
+                @Html.Sitecore().ImageField(Templates.NewsArticle.Fields.Image, Model.Item, mw: 150)
+            </a>
+        </div>
+    }
+</div>*@
+<section class="search-item fullwidth">
+    <div class="content--left">
+        <!-- can use product__badge--gray or --red -->
+        <a href="@Model.Url">
+            @Html.Sitecore().ImageField(Templates.NewsArticle.Fields.Image, Model.Item, mw: 305, cssClass: "product__image")
+        </a>
+    </div>
+    <div class="content--right">
+        <div class="product__title"><a href="@Model.Url">@Html.Raw(Model.Title)</a></div>
+        @if (!string.IsNullOrWhiteSpace(Model.Description))
+        {
+            <div class="product__description">
+                @Html.Raw(Model.Description)
+            </div>
+        }
+
+    </div>
+</section>

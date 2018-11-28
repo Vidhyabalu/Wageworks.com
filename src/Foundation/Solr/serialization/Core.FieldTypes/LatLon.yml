@@ -1,0 +1,22 @@
+﻿---
+ID: "979c10ce-1cfc-464c-adb4-32cb213b14ef"
+Parent: "F10ADA9E-D54E-4141-BDCA-FD3E5ABF1467"
+Template: "f8a17d6a-118e-4cd7-b5f5-88ff37a4f237"
+Path: /sitecore/system/Field types/Foundation/LatLon
+DB: core
+SharedFields:
+- ID: "0f0a5388-0467-4a45-95c0-729b1d6db9fd"
+  Hint: Control
+  Value: "customfields:GeoLocationControl"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20141210T105244
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

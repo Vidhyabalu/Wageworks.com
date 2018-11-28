@@ -1,0 +1,20 @@
+﻿@using Vista.Feature.News
+@using Vista.Foundation.SitecoreExtensions.Extensions
+
+@model Vista.Feature.News.Models.NewsListViewModel
+@using System.Linq
+
+@if (Model?.PagedItems != null)
+{
+    if (Model.HideContainer)
+    {
+        @Html.Partial("NewsGridPartial", Model)
+    }
+    else
+    {
+        <section class="container" id="news-article-list">
+            @Html.Partial("NewsGridPartial", Model)
+        </section>
+    }
+
+}

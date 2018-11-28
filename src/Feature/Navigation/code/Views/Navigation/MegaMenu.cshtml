@@ -1,0 +1,132 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.Dictionary.Extensions
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav">
+
+        @foreach (var item in Model.NavItems)
+        {
+            var hasChildren = item.Children != null && item.Children.NavItems != null && item.Children.NavItems.Any();
+            var megacss = hasChildren ? "nav-item__mega" : "";
+            var megaLinkCss = hasChildren ? "has-children" : "";
+            var title = item.NavigationTitle.ToLowerInvariant().Replace(" ", "");
+            <li class="nav-item @megacss">
+                @if (hasChildren)
+                {
+                    <a class="nav-link @megaLinkCss" href="@item.Url" id="sa-@title" aria-haspopup="true" aria-expanded="false">@item.NavigationTitle</a>
+                    <div class="dropdown-menu container-fluid" aria-labelledby="sa-firearms">
+                        <div class="dropdown-menu__wrapper container">
+                            <div class="dropdown-menu__navigation js-mega-nav">
+                                @foreach (var child in item.Children?.NavItems)
+                                {
+                                    var hasGrandChildren = child.Children != null && child.Children.NavItems != null && child.Children.NavItems.Any();
+                                    var hasChildrenCss = hasGrandChildren ? "has-children" : "";
+                                    var url = string.IsNullOrWhiteSpace(child.Url) ? "#" + child.NavigationTitle.Replace(" ", "").ToLowerInvariant() : child.Url;
+                                    <a class="dropdown-item @hasChildrenCss" href="@url">@child.NavigationTitle</a>
+                                }
+                                <a class="dropdown-item back" href="#">@Html.Sitecore().Dictionary("/Navigation/Mega Menu/Back", "Back")</a>
+                            </div>
+                            <div class="dropdown-menu__content">
+                                @foreach (var child in item.Children?.NavItems)
+                                {
+                                    var tagId = child.NavigationTitle.Replace(" ", "").ToLowerInvariant();
+                                    <div id="@tagId" class="content__wrapper">
+                                        @if (child.Children?.NavItems != null)
+                                        {
+                                            var navSections = child.Children?.NavItems?.Where(i => i.Item.IsDerived(Templates.NavigationRoot.ID));
+                                            var regularLinks = child.Children?.NavItems?.Where(i => !i.Item.IsDerived(Templates.NavigationRoot.ID));
+                                            foreach (var navSection in navSections)
+                                            {
+                                                var css = navSection == child.Children.NavItems.First() ? "category__container" : "subcategory__container";
+                                                <div class="@css">
+
+                                                    <h3>@navSection.Item.Name</h3>
+                                                    <ul class="category__list">
+                                                        @if (navSection.Children?.NavItems != null)
+                                                        {
+                                                            foreach (var sectionChild in navSection.Children?.NavItems)
+                                                            {
+                                                                <li>
+                                                                    <a href="@sectionChild.Url">@sectionChild.NavigationTitle</a>
+                                                                </li>
+                                                            }
+                                                        }
+
+                                                    </ul>
+
+                                                </div>
+                                            }
+                                            if (regularLinks.Any())
+                                            {
+                                                <ul class="category__list">
+                                                    @foreach (var link in regularLinks)
+                                                    {
+                                                        <li>
+                                                            <a href="@link.Url">@link.NavigationTitle</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+
+                                        }
+
+                                        @if (child.Item.IsDerived(Templates.PromotionLinkMenuItem.ID))
+                                        {
+                                            <!-- Mega Nav Promo-->
+                                            <div class="nav-promo">
+                                                @if (string.IsNullOrEmpty(child.Item[Templates.PromotionLinkMenuItem.Fields.PromoLink]))
+                                                {
+                                                    if (!string.IsNullOrEmpty(child.Item[Templates.PromotionLinkMenuItem.Fields.BackgroundImage]))
+                                                    {
+                                                        <div class="nav-promo__background" style="background-image: url(@child.Item.ImageUrl(Templates.PromotionLinkMenuItem.Fields.BackgroundImage));"></div>
+                                                    }
+
+                                                    if (!string.IsNullOrEmpty(child.Item[Templates.PromotionLinkMenuItem.Fields.PromoContent]))
+                                                    {
+                                                        <div class="nav-promo__content">
+                                                            @Html.Raw(child.Item[Templates.PromotionLinkMenuItem.Fields.PromoContent])
+                                                        </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <a href="@child.Item.LinkFieldUrl(Templates.PromotionLinkMenuItem.Fields.PromoLink)">
+                                                        @if (!string.IsNullOrEmpty(child.Item[Templates.PromotionLinkMenuItem.Fields.BackgroundImage]))
+                                                        {
+                                                            <div class="nav-promo__background" style="background-image: url(@child.Item.ImageUrl(Templates.PromotionLinkMenuItem.Fields.BackgroundImage));"></div>
+                                                        } 
+
+                                                        @if (!string.IsNullOrEmpty(child.Item[Templates.PromotionLinkMenuItem.Fields.PromoContent]))
+                                                        {
+                                                        <div class="nav-promo__content">
+                                                            @Html.Raw(child.Item[Templates.PromotionLinkMenuItem.Fields.PromoContent])
+                                                        </div>
+                                                        }
+                                                    </a>
+                                                }
+                                            </div>
+
+                                        }
+                                        <a class="dropdown-item back" href="#">@Html.Sitecore().Dictionary("/Navigation/Mega Menu/Back", "Back")</a>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a class="nav-link @megaLinkCss" href="@item.Url">@item.NavigationTitle</a>
+                }
+
+            </li>
+
+        }
+
+    </ul>
+
+</div>

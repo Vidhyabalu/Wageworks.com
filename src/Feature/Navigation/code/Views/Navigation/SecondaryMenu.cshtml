@@ -1,0 +1,22 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.Alerts.Extensions
+@using Vista.Foundation.Dictionary.Extensions
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItem
+@{
+  if (Model?.Children == null || !Model.Children.NavItems.Any())
+  {
+    @Html.PageEditorInfo(Html.Sitecore().Dictionary("/Navigation/SecondaryMenu/No menu items", "No menu items found"))
+    return;
+  }
+}
+
+<h4>
+  <a href="@Model.Url" target="@Model.Target">@Html.Sitecore().Field(Templates.Navigable.Fields.NavigationTitle, Model.Item)</a>
+</h4>
+<div class="sidebar sidebar-static">
+  @if (Model.Children != null)
+  {
+    @Html.Partial("_SecondaryMenuItems", Model.Children)
+  }
+</div>

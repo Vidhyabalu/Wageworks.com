@@ -1,0 +1,24 @@
+<#@ template language="C#" debug="True" #>
+<#@ output extension="gen.txt" #>
+<#@ include file="T4Toolbox.tt" #>
+
+<#@ include file="$(SolutionDir)src\Foundation\ORM\code\Generator\GlassGenerator.tt" #>
+<#
+
+	GlassGenerator generator = new GlassGenerator(
+			"master",
+			new [] { "/sitecore/templates/Feature/Navigation"},(fieldId, fieldOptions) =>
+				{
+					// Add custom options, like setting the return type of a field property explicitly
+
+                    
+				});
+    generator.Run();
+
+	WriteLine("These files were generated:");
+	foreach(var file in generator.GeneratedFiles) 
+	{
+		WriteLine(string.Concat("- ", file));
+	}
+
+#>

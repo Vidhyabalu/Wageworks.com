@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{9894420E-CC84-4C15-812C-08C54FF2FDD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{6243EBB9-BB89-47EF-97B7-E99CE10286C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{A85A3B74-813B-4588-836A-245E8F4DA854}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{067942D9-74B1-45D6-BEE1-073C691A4F0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wageworks.Feature.Navigation", "src\Feature\Navigation\code\Wageworks.Feature.Navigation.csproj", "{16003E7F-0FAF-4DEE-B13D-DD327E965A98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wageworks.Feature.News", "src\Feature\News\code\Wageworks.Feature.News.csproj", "{1AAD6F22-9B6D-4688-8EA5-1AE7044031F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", "{0F68DCF0-216D-468F-B52A-B92533F87057}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "News", "News", "{2F17FABF-8494-42F2-B2EC-882EF1BA14DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wageworks.Foundation.DependencyInjection", "src\Foundation\DependencyInjection\code\Wageworks.Foundation.DependencyInjection.csproj", "{366148B7-2392-4F42-80D6-786B7A3682AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{4D0F6E8A-E9E2-4007-89A5-D50CEDA6EB94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wageworks.Foundation.Serialization", "src\Foundation\Serialization\code\Wageworks.Foundation.Serialization.csproj", "{007CD5DC-0030-460D-91A3-3DDEA9AB472F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wageworks.Foundation.SitecoreExtensions", "src\Foundation\SitecoreExtensions\code\Wageworks.Foundation.SitecoreExtensions.csproj", "{B535703F-8D07-4F23-A533-2974BB4CC7B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wageworks.Foundation.Solr.SpatialSearch", "src\Foundation\Solr\code\Wageworks.Foundation.Solr.SpatialSearch.csproj", "{7FE4E99D-8FFC-485B-AEDA-FF47D1141CD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{60BEAB96-F781-4AA3-A236-E3753B8144B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SitecoreExtensions", "SitecoreExtensions", "{41D00D94-F158-4A06-9BE8-19E0831CF586}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solr", "Solr", "{52258488-4354-4F1E-9ED6-B4B94A1A0A62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16003E7F-0FAF-4DEE-B13D-DD327E965A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16003E7F-0FAF-4DEE-B13D-DD327E965A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16003E7F-0FAF-4DEE-B13D-DD327E965A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16003E7F-0FAF-4DEE-B13D-DD327E965A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AAD6F22-9B6D-4688-8EA5-1AE7044031F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AAD6F22-9B6D-4688-8EA5-1AE7044031F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AAD6F22-9B6D-4688-8EA5-1AE7044031F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AAD6F22-9B6D-4688-8EA5-1AE7044031F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366148B7-2392-4F42-80D6-786B7A3682AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366148B7-2392-4F42-80D6-786B7A3682AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366148B7-2392-4F42-80D6-786B7A3682AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366148B7-2392-4F42-80D6-786B7A3682AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{007CD5DC-0030-460D-91A3-3DDEA9AB472F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007CD5DC-0030-460D-91A3-3DDEA9AB472F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007CD5DC-0030-460D-91A3-3DDEA9AB472F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007CD5DC-0030-460D-91A3-3DDEA9AB472F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B535703F-8D07-4F23-A533-2974BB4CC7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B535703F-8D07-4F23-A533-2974BB4CC7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B535703F-8D07-4F23-A533-2974BB4CC7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B535703F-8D07-4F23-A533-2974BB4CC7B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE4E99D-8FFC-485B-AEDA-FF47D1141CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE4E99D-8FFC-485B-AEDA-FF47D1141CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE4E99D-8FFC-485B-AEDA-FF47D1141CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE4E99D-8FFC-485B-AEDA-FF47D1141CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16003E7F-0FAF-4DEE-B13D-DD327E965A98} = {0F68DCF0-216D-468F-B52A-B92533F87057}
+		{1AAD6F22-9B6D-4688-8EA5-1AE7044031F7} = {2F17FABF-8494-42F2-B2EC-882EF1BA14DB}
+		{0F68DCF0-216D-468F-B52A-B92533F87057} = {9894420E-CC84-4C15-812C-08C54FF2FDD9}
+		{2F17FABF-8494-42F2-B2EC-882EF1BA14DB} = {9894420E-CC84-4C15-812C-08C54FF2FDD9}
+		{366148B7-2392-4F42-80D6-786B7A3682AE} = {4D0F6E8A-E9E2-4007-89A5-D50CEDA6EB94}
+		{4D0F6E8A-E9E2-4007-89A5-D50CEDA6EB94} = {A85A3B74-813B-4588-836A-245E8F4DA854}
+		{007CD5DC-0030-460D-91A3-3DDEA9AB472F} = {60BEAB96-F781-4AA3-A236-E3753B8144B4}
+		{B535703F-8D07-4F23-A533-2974BB4CC7B1} = {41D00D94-F158-4A06-9BE8-19E0831CF586}
+		{7FE4E99D-8FFC-485B-AEDA-FF47D1141CD9} = {52258488-4354-4F1E-9ED6-B4B94A1A0A62}
+		{60BEAB96-F781-4AA3-A236-E3753B8144B4} = {A85A3B74-813B-4588-836A-245E8F4DA854}
+		{41D00D94-F158-4A06-9BE8-19E0831CF586} = {A85A3B74-813B-4588-836A-245E8F4DA854}
+		{52258488-4354-4F1E-9ED6-B4B94A1A0A62} = {A85A3B74-813B-4588-836A-245E8F4DA854}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDD41E47-F7E6-4DAC-BCDD-FC081D4A9D98}
+	EndGlobalSection
+EndGlobal

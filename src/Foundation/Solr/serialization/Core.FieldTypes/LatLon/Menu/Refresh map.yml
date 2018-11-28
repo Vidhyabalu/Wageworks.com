@@ -1,0 +1,22 @@
+﻿---
+ID: "dbd9e3e3-a233-41d8-a139-4637893507b3"
+Parent: "e9a5fad4-17e8-44c0-95b2-339986830c5a"
+Template: "998b965e-6ab8-4568-810f-8101d60d0cc3"
+Path: /sitecore/system/Field types/Foundation/LatLon/Menu/Refresh map
+DB: core
+SharedFields:
+- ID: "cab694fc-e37c-44eb-9012-488b775cf638"
+  Hint: Message
+  Value: "geolocation:refresh(id=$Target)"
+Languages:
+- Language: en
+  Fields:
+  - ID: "9b72a62b-2775-423d-b17a-ec34a9f31af8"
+    Hint: Display name
+    Value: Refresh map
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20141210T142935

@@ -1,0 +1,31 @@
+﻿@model Vista.Feature.News.Models.ExternalNewsViewModel
+
+
+<section class="container">
+    <div class="news">
+        <article>
+            @if (Model.SelectedNews != null)
+            {
+                <h1>@Model.SelectedNews.TITLE</h1>
+
+                if (!string.IsNullOrEmpty(Model.SelectedNews.BODY_IMG) || !string.IsNullOrEmpty(Model.SelectedNews.BODY_IMG))
+                {
+                <div class="float-left">
+                    <a href="@Model.SelectedNews.HI_RES_IMG.Replace("/images/", "/hi_res/")" target="_blank"><img src="@Model.SelectedNews.BODY_IMG" alt="@Model.SelectedNews.IMG_DESC" /></a>
+                </div>
+                }
+                @Html.Raw(Model.SelectedNews.BODY_TEXT)
+            }
+        </article>
+
+        <aside>
+            <h3>Previous News Releases</h3>
+            <ul>
+                @foreach (var news in Model.NewsList)
+                {
+                    <li><a href="?id=@(news.ID)">@news.TITLE</a></li>
+                }
+            </ul>
+        </aside>
+    </div>
+</section>

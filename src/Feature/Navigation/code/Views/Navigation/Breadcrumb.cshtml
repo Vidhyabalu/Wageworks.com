@@ -1,0 +1,14 @@
+﻿@using Vista.Feature.Navigation
+@using Vista.Foundation.SitecoreExtensions.Extensions
+@model Vista.Feature.Navigation.Models.NavigationItems
+
+<section class="breadcrumb container">
+    <ul class="d-flex">
+        @foreach (var item in Model.NavItems)
+        {
+            var lastCss = item == Model.NavItems.Last() ? "active" : "";
+
+            <li><a class="breadcrumb__link @lastCss" href="@item.Url">@item.NavigationTitle</a></li>
+        }
+    </ul> 
+</section>
