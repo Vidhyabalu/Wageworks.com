@@ -1,4 +1,4 @@
-﻿namespace Vista.Feature.News.Controllers
+﻿namespace Wageworks.Feature.News.Controllers
 {
     using Sitecore;
     using Sitecore.Data.Fields;
@@ -10,11 +10,11 @@
     using System.Text.RegularExpressions;
     using System.Web;
     using System.Web.Mvc;
-    using Vista.Feature.News.Caching;
-    using Vista.Feature.News.Models;
-    using Vista.Feature.News.Repositories;
-    using Vista.Foundation.ORM.Context;
-    using Vista.Foundation.SitecoreExtensions.Extensions;
+    using Wageworks.Feature.News.Caching;
+    using Wageworks.Feature.News.Models;
+    using Wageworks.Feature.News.Repositories;
+    using Wageworks.Foundation.ORM.Context;
+    using Wageworks.Foundation.SitecoreExtensions.Extensions;
 
     public class NewsController : Controller
     {
@@ -171,7 +171,7 @@
 
         private Item GetContextItem()
         {
-            return Vista.Foundation.Commerce.Extensions.CommerceExtensions.GetContextItem(GetRequest());
+            return Wageworks.Foundation.Commerce.Extensions.CommerceExtensions.GetContextItem(GetRequest());
         }
     }
 }

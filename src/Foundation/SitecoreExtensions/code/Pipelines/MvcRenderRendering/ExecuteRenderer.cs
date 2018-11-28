@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Sitecore.Diagnostics;
 using Sitecore.Mvc.Pipelines.Response.RenderRendering;
 
-namespace Vista.Foundation.SitecoreExtensions.Pipelines.MvcRenderRendering
+namespace Wageworks.Foundation.SitecoreExtensions.Pipelines.MvcRenderRendering
 {
     public class ExecuteRenderer : Sitecore.Mvc.Pipelines.Response.RenderRendering.ExecuteRenderer
     {

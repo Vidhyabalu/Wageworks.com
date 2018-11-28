@@ -3,7 +3,7 @@ using Sitecore.Pipelines.HttpRequest;
 using System;
 using System.Linq;
 
-namespace Vista.Foundation.SitecoreExtensions.Pipelines.HttpRequest
+namespace Wageworks.Foundation.SitecoreExtensions.Pipelines.HttpRequest
 {
     public class CompressionDisableHttpRequestProcessor : HttpRequestProcessor
     {

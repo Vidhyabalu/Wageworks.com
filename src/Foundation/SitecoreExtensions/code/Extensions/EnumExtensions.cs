@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
-namespace Vista.Foundation.SitecoreExtensions.Extensions
+namespace Wageworks.Foundation.SitecoreExtensions.Extensions
 {
     public static class EnumExtensions
     {

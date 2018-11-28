@@ -1,7 +1,7 @@
 ﻿using log4net;
 using Sitecore.Diagnostics;
 
-namespace Vista.Foundation.SitecoreExtensions.Pipelines.ErrorHandling
+namespace Wageworks.Foundation.SitecoreExtensions.Pipelines.ErrorHandling
 {
     public static class _404Logger
     {

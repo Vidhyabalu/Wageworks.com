@@ -4,7 +4,7 @@ using Sitecore.Abstractions;
 using Sitecore.Configuration;
 using Sitecore.Web;
 
-namespace Vista.Foundation.SitecoreExtensions.Pipelines.ErrorHandling
+namespace Wageworks.Foundation.SitecoreExtensions.Pipelines.ErrorHandling
 {
     public class CustomExecuteRequest : global::Sitecore.Pipelines.HttpRequest.ExecuteRequest
     {

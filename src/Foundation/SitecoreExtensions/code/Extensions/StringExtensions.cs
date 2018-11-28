@@ -7,7 +7,7 @@ using System.Web;
 using Sitecore.ContentSearch.Utilities;
 using Sitecore.Diagnostics;
 
-namespace Vista.Foundation.SitecoreExtensions.Extensions
+namespace Wageworks.Foundation.SitecoreExtensions.Extensions
 {
     public static class StringExtensions
     {

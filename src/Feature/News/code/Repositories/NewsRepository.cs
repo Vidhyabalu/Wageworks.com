@@ -1,12 +1,12 @@
-﻿namespace Vista.Feature.News.Repositories
+﻿namespace Wageworks.Feature.News.Repositories
 {
     using Sitecore.Data.Items;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Vista.Foundation.DependencyInjection;
-    using Vista.Foundation.Indexing.Models;
-    using Vista.Foundation.Indexing.Repositories;
+    using Wageworks.Foundation.DependencyInjection;
+    using Wageworks.Foundation.Indexing.Models;
+    using Wageworks.Foundation.Indexing.Repositories;
 
     [Service(typeof(INewsRepository))]
     public class NewsRepository : INewsRepository

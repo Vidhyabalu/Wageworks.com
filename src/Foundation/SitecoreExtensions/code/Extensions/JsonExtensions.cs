@@ -12,7 +12,7 @@ using Sitecore.Caching.Generics;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 
-namespace Vista.Foundation.SitecoreExtensions.Extensions
+namespace Wageworks.Foundation.SitecoreExtensions.Extensions
 {
     public static class JsonExtensions
     {

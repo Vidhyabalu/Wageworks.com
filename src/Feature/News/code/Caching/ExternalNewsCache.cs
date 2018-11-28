@@ -1,13 +1,13 @@
 ﻿using Sitecore.Caching;
 using Sitecore.Data;
 using System.Collections.Generic;
-using Vista.Feature.News.Models.Json;
+using Wageworks.Feature.News.Models.Json;
 
-namespace Vista.Feature.News.Caching
+namespace Wageworks.Feature.News.Caching
 {
     public class ExternalNewsCache : CustomCache
     {
-        public ExternalNewsCache(long maxSize) : base("Vista.Feature.News.ExternalNews", maxSize)
+        public ExternalNewsCache(long maxSize) : base("Wageworks.Feature.News.ExternalNews", maxSize)
         {
         }
 

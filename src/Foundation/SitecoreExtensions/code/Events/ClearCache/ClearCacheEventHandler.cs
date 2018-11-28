@@ -13,7 +13,7 @@ using Sitecore.Commerce.Engine.Connect.DataProvider;
 using System.Net.Http;
 using Sitecore.Configuration;
 
-namespace Vista.Foundation.SitecoreExtensions.Events.ClearCache
+namespace Wageworks.Foundation.SitecoreExtensions.Events.ClearCache
 {
     public class ClearCacheEventHandler
     {
@@ -21,7 +21,7 @@ namespace Vista.Foundation.SitecoreExtensions.Events.ClearCache
         {
             Log.Info("ClearCacheEventhandler - Run", typeof(ClearCacheEventHandler));
             ClearCacheEventArgs args = new ClearCacheEventArgs(@event.CacheNames);
-            Event.RaiseEvent("vista:clearcacheremote", new object[] { args });
+            Event.RaiseEvent("Wageworks:clearcacheremote", new object[] { args });
         }
         public virtual void OnClearCacheRemote(object sender, EventArgs e)
         {

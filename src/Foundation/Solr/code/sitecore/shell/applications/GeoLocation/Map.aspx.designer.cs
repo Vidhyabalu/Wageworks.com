@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vista.Foundation.Solr.SpatialSearch.sitecore.shell.applications.GeoLocation
+namespace Wageworks.Foundation.Solr.SpatialSearch.sitecore.shell.applications.GeoLocation
 {
 
 

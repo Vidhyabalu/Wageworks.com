@@ -1,4 +1,4 @@
-﻿namespace Vista.Foundation.DependencyInjection
+﻿namespace Wageworks.Foundation.DependencyInjection
 {
     public enum Lifetime
     {

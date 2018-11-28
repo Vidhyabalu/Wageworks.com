@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Vista.Foundation.SitecoreExtensions")]
+[assembly: AssemblyTitle("Wageworks.Foundation.SitecoreExtensions")]
 [assembly: AssemblyDescription("")]
 //NOTE: Other assembly atributes are added by the ProductInfo.cs
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: InternalsVisibleTo("Vista.Foundation.SitecoreExtensions.Tests")]
+[assembly: InternalsVisibleTo("Wageworks.Foundation.SitecoreExtensions.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

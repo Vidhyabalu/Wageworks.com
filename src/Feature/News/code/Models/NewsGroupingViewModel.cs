@@ -1,7 +1,7 @@
 ﻿using Sitecore.Data.Items;
 using System.Collections.Generic;
 
-namespace Vista.Feature.News.Models
+namespace Wageworks.Feature.News.Models
 {
     public class NewsGroupingViewModel
     {

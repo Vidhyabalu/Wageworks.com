@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Sitecore.ContentSearch.SearchTypes;
 
-namespace Vista.Foundation.Solr.SpatialSearch
+namespace Wageworks.Foundation.Solr.SpatialSearch
 {
     public static  class SearchExtensions
     {

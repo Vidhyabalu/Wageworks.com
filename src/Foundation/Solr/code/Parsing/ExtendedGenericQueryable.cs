@@ -4,9 +4,9 @@ using System.Linq.Expressions;
 using Sitecore.ContentSearch.Linq.Common;
 using Sitecore.ContentSearch.Linq.Indexing;
 using Sitecore.ContentSearch.Linq.Parsing;
-using Vista.Foundation.Solr.SpatialSearch.Common;
+using Wageworks.Foundation.Solr.SpatialSearch.Common;
 
-namespace Vista.Foundation.Solr.SpatialSearch.Parsing
+namespace Wageworks.Foundation.Solr.SpatialSearch.Parsing
 {
     public class ExtendedGenericQueryable<TElement, TQuery> : GenericQueryable<TElement, TQuery>
     {

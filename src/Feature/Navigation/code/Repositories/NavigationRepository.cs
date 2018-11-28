@@ -1,8 +1,8 @@
 ﻿using Sitecore.Links;
 using System.Web;
-using Vista.Foundation.Commerce.Extensions;
+using Wageworks.Foundation.Commerce.Extensions;
 
-namespace Vista.Feature.Navigation.Repositories
+namespace Wageworks.Feature.Navigation.Repositories
 {
     using Sitecore;
     using Sitecore.Data.Items;
@@ -10,9 +10,9 @@ namespace Vista.Feature.Navigation.Repositories
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Vista.Feature.Navigation.Models;
-    using Vista.Foundation.DependencyInjection;
-    using Vista.Foundation.SitecoreExtensions.Extensions;
+    using Wageworks.Feature.Navigation.Models;
+    using Wageworks.Foundation.DependencyInjection;
+    using Wageworks.Foundation.SitecoreExtensions.Extensions;
 
     [Service(typeof(INavigationRepository), Lifetime = Lifetime.Transient)]
     public class NavigationRepository : INavigationRepository

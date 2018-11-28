@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
-using Vista.Feature.News.Models.Json;
+using Wageworks.Feature.News.Models.Json;
 
-namespace Vista.Feature.News.Repositories
+namespace Wageworks.Feature.News.Repositories
 {
     public class ExternalNewsRepository
     {
@@ -15,7 +15,7 @@ namespace Vista.Feature.News.Repositories
         public List<ExternalNewsModel> GetNews()
         {
             // TODO: move to sitecore config
-            var setting = $"Vista.Feature.News.ExternalNewsFeedUrl.{Sitecore.Context.Site.Name}";
+            var setting = $"Wageworks.Feature.News.ExternalNewsFeedUrl.{Sitecore.Context.Site.Name}";
 
             var config = Settings.GetSetting(setting);
             if (string.IsNullOrEmpty(config))

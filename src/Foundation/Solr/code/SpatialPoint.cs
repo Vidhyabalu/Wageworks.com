@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Vista.Foundation.Solr.SpatialSearch
+namespace Wageworks.Foundation.Solr.SpatialSearch
 {
     [Serializable]
     public class SpatialPoint

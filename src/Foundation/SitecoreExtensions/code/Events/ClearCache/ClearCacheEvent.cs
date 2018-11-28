@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Vista.Foundation.SitecoreExtensions.Events.ClearCache
+namespace Wageworks.Foundation.SitecoreExtensions.Events.ClearCache
 {
     [DataContract]
     public class ClearCacheEvent

@@ -1,7 +1,7 @@
 ﻿using System;
 using Sitecore.Events;
 
-namespace Vista.Foundation.SitecoreExtensions.Events.ClearCache
+namespace Wageworks.Foundation.SitecoreExtensions.Events.ClearCache
 {
     [Serializable]
     public class ClearCacheEventArgs : EventArgs, IPassNativeEventArgs

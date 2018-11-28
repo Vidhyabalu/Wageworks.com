@@ -1,4 +1,4 @@
-﻿namespace Vista.Feature.Navigation.Models
+﻿namespace Wageworks.Feature.Navigation.Models
 {
   using System.Collections.Generic;
   using Sitecore.Mvc.Presentation;

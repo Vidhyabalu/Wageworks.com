@@ -1,4 +1,4 @@
-﻿namespace Vista.Feature.News
+﻿namespace Wageworks.Feature.News
 {
     public struct Constants
     {

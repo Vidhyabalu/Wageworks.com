@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using Sitecore.Diagnostics;
 
-namespace Vista.Foundation.SitecoreExtensions.Extensions
+namespace Wageworks.Foundation.SitecoreExtensions.Extensions
 {
     public static class SessionExtensions
   {

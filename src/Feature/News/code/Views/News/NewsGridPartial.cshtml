@@ -1,7 +1,7 @@
-﻿@using Vista.Feature.News
-@using Vista.Foundation.SitecoreExtensions.Extensions
+﻿@using Wageworks.Feature.News
+@using Wageworks.Foundation.SitecoreExtensions.Extensions
 
-@model Vista.Feature.News.Models.NewsListViewModel
+@model Wageworks.Feature.News.Models.NewsListViewModel
 
 <div class="news-items__filters d-flex">
     <ul class="news-items__filters--subject d-flex tags">
@@ -11,7 +11,7 @@
                 <span>All Articles</span>
             </label>
         </li>
-        @foreach (Vista.Feature.News.Models.NewsFilterItem filter in Model.Tags)
+        @foreach (Wageworks.Feature.News.Models.NewsFilterItem filter in Model.Tags)
         {
             <li>
                 <label for="@filter.Key.ToString()">

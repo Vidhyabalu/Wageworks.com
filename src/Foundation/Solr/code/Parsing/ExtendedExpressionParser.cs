@@ -3,9 +3,9 @@ using System.Linq.Expressions;
 using Sitecore.ContentSearch.Linq.Common;
 using Sitecore.ContentSearch.Linq.Nodes;
 using Sitecore.ContentSearch.Linq.Parsing;
-using Vista.Foundation.Solr.SpatialSearch.Nodes;
+using Wageworks.Foundation.Solr.SpatialSearch.Nodes;
 
-namespace Vista.Foundation.Solr.SpatialSearch.Parsing
+namespace Wageworks.Foundation.Solr.SpatialSearch.Parsing
 {
     public class ExtendedExpressionParser : ExpressionParser
     {

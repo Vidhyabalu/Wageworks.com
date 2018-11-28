@@ -1,4 +1,4 @@
-﻿namespace Vista.Feature.News.Repositories
+﻿namespace Wageworks.Feature.News.Repositories
 {
   using System.Collections.Generic;
   using Sitecore.Data.Items;

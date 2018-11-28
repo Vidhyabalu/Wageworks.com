@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Map.aspx.cs" Inherits="Vista.Foundation.Solr.SpatialSearch.sitecore.shell.applications.GeoLocation.Map" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Map.aspx.cs" Inherits="Wageworks.Foundation.Solr.SpatialSearch.sitecore.shell.applications.GeoLocation.Map" %>
 <!DOCTYPE html>
 <html>
   <head>

@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Vista.Feature.News.Models;
-using Vista.Foundation.ORM.Context;
-using Vista.Foundation.SitecoreExtensions.Extensions;
+using Wageworks.Feature.News.Models;
+using Wageworks.Foundation.ORM.Context;
+using Wageworks.Foundation.SitecoreExtensions.Extensions;
 
-namespace Vista.Feature.News.Repositories
+namespace Wageworks.Feature.News.Repositories
 {
     public class SitecoreNewsModelRepository : INewsModelRepository
     {

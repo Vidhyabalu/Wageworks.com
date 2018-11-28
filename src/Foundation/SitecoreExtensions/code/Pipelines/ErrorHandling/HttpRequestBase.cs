@@ -4,7 +4,7 @@ using System.Web;
 using Sitecore;
 using Sitecore.Pipelines.HttpRequest;
 
-namespace Vista.Foundation.SitecoreExtensions.Pipelines.ErrorHandling
+namespace Wageworks.Foundation.SitecoreExtensions.Pipelines.ErrorHandling
 {
     public abstract class HttpRequestBase : HttpRequestProcessor
     {

@@ -1,11 +1,11 @@
 ﻿@using Sitecore
-@using Vista.Feature.News
-@using Vista.Foundation.Dictionary.Extensions
-@using Vista.Foundation.SitecoreExtensions.Extensions
+@using Wageworks.Feature.News
+@using Wageworks.Foundation.Dictionary.Extensions
+@using Wageworks.Foundation.SitecoreExtensions.Extensions
 @using Sitecore.Links
-@using Vista.Foundation.Alerts
-@using Vista.Foundation.Alerts.Extensions
-@using Vista.Feature.News.Extensions
+@using Wageworks.Foundation.Alerts
+@using Wageworks.Foundation.Alerts.Extensions
+@using Wageworks.Feature.News.Extensions
 
 @model Sitecore.Data.Items.Item
 
@@ -15,7 +15,7 @@
     return;
 }
 
-@if (System.Web.HttpContext.Current.GetCookie(string.Format(Vista.Feature.News.Constants.AlertIdFormatString, Model.ID.Guid)) != null)
+@if (System.Web.HttpContext.Current.GetCookie(string.Format(Wageworks.Feature.News.Constants.AlertIdFormatString, Model.ID.Guid)) != null)
 {
     return;
 }

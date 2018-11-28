@@ -1,6 +1,6 @@
 ﻿using Sitecore.Mvc.Presentation;
 
-namespace Vista.Foundation.SitecoreExtensions.Repositories
+namespace Wageworks.Foundation.SitecoreExtensions.Repositories
 {
     public interface IRenderingPropertiesRepository
   {

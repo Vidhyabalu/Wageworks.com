@@ -1,4 +1,4 @@
-﻿namespace Vista.Feature.Navigation.Extensions
+﻿namespace Wageworks.Feature.Navigation.Extensions
 {
     public static class StringExtensions
     {

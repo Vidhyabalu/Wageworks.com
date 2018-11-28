@@ -1,6 +1,6 @@
 ﻿using Sitecore.Data.Items;
 
-namespace Vista.Foundation.SitecoreExtensions.Models
+namespace Wageworks.Foundation.SitecoreExtensions.Models
 {
     public interface IFormModel
     {

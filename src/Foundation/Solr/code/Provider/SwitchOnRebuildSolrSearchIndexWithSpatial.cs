@@ -2,7 +2,7 @@
 using Sitecore.ContentSearch.Maintenance;
 using Sitecore.ContentSearch.SolrProvider;
 
-namespace Vista.Foundation.Solr.SpatialSearch.Provider
+namespace Wageworks.Foundation.Solr.SpatialSearch.Provider
 {
     public class SwitchOnRebuildSolrSearchIndexWithSpatial : SwitchOnRebuildSolrSearchIndex
 	{

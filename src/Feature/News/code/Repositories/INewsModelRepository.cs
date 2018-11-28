@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Vista.Feature.News.Models;
+using Wageworks.Feature.News.Models;
 
-namespace Vista.Feature.News.Repositories
+namespace Wageworks.Feature.News.Repositories
 {
     public interface INewsModelRepository
     {

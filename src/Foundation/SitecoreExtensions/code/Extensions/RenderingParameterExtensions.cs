@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using Sitecore.Diagnostics;
 using Sitecore.Mvc.Presentation;
 
-namespace Vista.Foundation.SitecoreExtensions.Extensions
+namespace Wageworks.Foundation.SitecoreExtensions.Extensions
 {
     public static class RenderingParameterExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Vista.Foundation.SitecoreExtensions.Services
+namespace Wageworks.Foundation.SitecoreExtensions.Services
 {
     public interface ITrackerService
     {

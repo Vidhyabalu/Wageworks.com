@@ -1,6 +1,6 @@
-﻿using Vista.Foundation.Indexing.Services;
+﻿using Wageworks.Foundation.Indexing.Services;
 
-namespace Vista.Feature.News.Indexing
+namespace Wageworks.Feature.News.Indexing
 {
     using System;
     using System.Collections.Generic;
@@ -9,9 +9,9 @@ namespace Vista.Feature.News.Indexing
     using Sitecore.ContentSearch.SearchTypes;
     using Sitecore.Data;
     using Sitecore.Data.Fields;
-    using Vista.Foundation.Dictionary.Repositories;
-    using Vista.Foundation.Indexing.Infrastructure;
-    using Vista.Foundation.Indexing.Models;
+    using Wageworks.Foundation.Dictionary.Repositories;
+    using Wageworks.Foundation.Indexing.Infrastructure;
+    using Wageworks.Foundation.Indexing.Models;
     using Sitecore.Web.UI.WebControls;
 
     public class NewsIndexingProvider : ProviderBase, ISearchResultFormatter, IQueryPredicateProvider

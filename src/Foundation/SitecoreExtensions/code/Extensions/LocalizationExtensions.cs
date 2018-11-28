@@ -12,7 +12,7 @@ using Sitecore.Globalization;
 using Sitecore.SecurityModel;
 using Sitecore.StringExtensions;
 
-namespace Vista.Foundation.SitecoreExtensions.Extensions
+namespace Wageworks.Foundation.SitecoreExtensions.Extensions
 {
     public static class LocalizationExtensions
     {

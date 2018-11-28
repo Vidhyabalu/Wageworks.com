@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Vista.Foundation.DependencyInjection
+namespace Wageworks.Foundation.DependencyInjection
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class ServiceAttribute : Attribute

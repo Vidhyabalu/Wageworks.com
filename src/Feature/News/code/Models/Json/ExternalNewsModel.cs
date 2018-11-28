@@ -1,4 +1,4 @@
-﻿namespace Vista.Feature.News.Models.Json
+﻿namespace Wageworks.Feature.News.Models.Json
 {
     public class ExternalNewsModel
     {

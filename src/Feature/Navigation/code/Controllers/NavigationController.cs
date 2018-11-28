@@ -1,14 +1,14 @@
 ﻿using Sitecore;
 
-namespace Vista.Feature.Navigation.Controllers
+namespace Wageworks.Feature.Navigation.Controllers
 {
     using Sitecore.Mvc.Presentation;
     using System.Web.Mvc;
-    using Vista.Feature.Navigation.Models;
-    using Vista.Feature.Navigation.Repositories;
-    using Vista.Foundation.Alerts.Extensions;
-    using Vista.Foundation.Alerts.Models;
-    using Vista.Foundation.Dictionary.Repositories;
+    using Wageworks.Feature.Navigation.Models;
+    using Wageworks.Feature.Navigation.Repositories;
+    using Wageworks.Foundation.Alerts.Extensions;
+    using Wageworks.Foundation.Alerts.Models;
+    using Wageworks.Foundation.Dictionary.Repositories;
 
     public class NavigationController : Controller
     {

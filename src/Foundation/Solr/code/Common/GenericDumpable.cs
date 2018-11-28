@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Sitecore.ContentSearch.Linq.Common;
 
-namespace Vista.Foundation.Solr.SpatialSearch.Common
+namespace Wageworks.Foundation.Solr.SpatialSearch.Common
 {
     public class GenericDumpable : IDumpable
     {

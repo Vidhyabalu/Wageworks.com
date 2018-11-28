@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Vista.Foundation.SitecoreExtensions.Attributes
+namespace Wageworks.Foundation.SitecoreExtensions.Attributes
 {
     public abstract class ModelStateTransfer : ActionFilterAttribute
     {

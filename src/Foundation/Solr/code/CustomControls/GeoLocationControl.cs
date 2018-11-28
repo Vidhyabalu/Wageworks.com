@@ -4,7 +4,7 @@ using Sitecore.Diagnostics;
 using Sitecore.Shell.Applications.ContentEditor;
 using Sitecore.Web.UI.Sheer;
 
-namespace Vista.Foundation.Solr.SpatialSearch.CustomControls
+namespace Wageworks.Foundation.Solr.SpatialSearch.CustomControls
 {
     public class GeoLocationControl : Sitecore.Shell.Applications.ContentEditor.Text, IContentField
     {

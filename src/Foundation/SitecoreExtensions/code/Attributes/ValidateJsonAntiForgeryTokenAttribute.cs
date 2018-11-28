@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 
-namespace Vista.Foundation.SitecoreExtensions.Attributes
+namespace Wageworks.Foundation.SitecoreExtensions.Attributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class ValidateJsonAntiForgeryTokenAttribute : FilterAttribute, IAuthorizationFilter

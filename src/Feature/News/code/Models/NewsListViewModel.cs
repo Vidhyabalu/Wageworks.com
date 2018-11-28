@@ -4,9 +4,9 @@ using Sitecore.Data.Items;
 using Sitecore.Resources.Media;
 using System;
 using System.Collections.Generic;
-using Vista.Foundation.SitecoreExtensions.Extensions;
+using Wageworks.Foundation.SitecoreExtensions.Extensions;
 
-namespace Vista.Feature.News.Models
+namespace Wageworks.Feature.News.Models
 {
     public class NewsListViewModel
     {

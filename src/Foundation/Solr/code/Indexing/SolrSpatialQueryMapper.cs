@@ -1,10 +1,10 @@
 ﻿using Sitecore.ContentSearch.Linq.Nodes;
 using Sitecore.ContentSearch.Linq.Solr;
 using SolrNet;
-using Vista.Foundation.Solr.SpatialSearch.Nodes;
-using WithinRadiusNode = Vista.Foundation.Solr.SpatialSearch.Nodes.WithinRadiusNode;
+using Wageworks.Foundation.Solr.SpatialSearch.Nodes;
+using WithinRadiusNode = Wageworks.Foundation.Solr.SpatialSearch.Nodes.WithinRadiusNode;
 
-namespace Vista.Foundation.Solr.SpatialSearch.Indexing
+namespace Wageworks.Foundation.Solr.SpatialSearch.Indexing
 {
     public class SolrSpatialQueryMapper: SolrQueryMapper
     {

@@ -5,7 +5,7 @@ using System.Web;
 using Sitecore.Diagnostics;
 using Sitecore.Pipelines.HttpRequest;
 
-namespace Vista.Foundation.SitecoreExtensions.Pipelines.HttpRequest
+namespace Wageworks.Foundation.SitecoreExtensions.Pipelines.HttpRequest
 {
     public abstract class SiteSpecificBaseHttpRequestProcessor : HttpRequestProcessor
     {
